@@ -51,20 +51,7 @@ namespace NaiveBayesClassifier.App
             classifier.Teach(list);
             var result = classifier.Classify(new List<string>() { "Dear", "sex", "car", "money" });
 
-            //Some real example
-            var example = @"Viagra -20%
-
-                            About 50% of all men over 40 years old suffer from ED. 
-                            Erectile Dysfunction happens when not enough blood flows to the penis, as a result, man can't maintain erection. 
-                            You can improve your erection with medicine called Generic Viagra. Generic Viagra can improve your sexual activity by prolonging erection for 4 hours. 
-                            Generic Viagra helps to improve erection.".Split(' ');
-
-            var result2 = classifier.Classify(new List<string>(example.Select(x => x.ToLower())));
-
-
-
-
-            foreach (var x in result2)
+            foreach (var x in result)
             {
                 Console.WriteLine("{0} => {1}", x.Key, x.Value);
             }

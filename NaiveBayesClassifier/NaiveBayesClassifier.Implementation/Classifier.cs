@@ -70,7 +70,7 @@ namespace NaiveBayesClassifier.Implementation
         /// <param name="label">Label</param>
         /// <param name="features">Features of object</param>
         /// <returns></returns>
-        private double CalculateProbability(string label, List<TFeature> features)
+        private double CalculateProbability(string label, IEnumerable<TFeature> features)
         {
             if(string.IsNullOrEmpty(label))
                 throw new ArgumentException("Empty lable");
@@ -82,8 +82,8 @@ namespace NaiveBayesClassifier.Implementation
             //P(d) = ilosc_wystapien_danej_kategorii/ilosc_wszystkich_pozycji_na_liscie_treningowej
             //P(v1|d) = ilosc_wystepowania_cechy_v1/ilosc_wystepowania_danej_kategorii_w_danych_treningowych
 
-            var currentLableSet = _rawTrainingData.Where(x=>x.Lable==label).ToList();
-            double labelProbability = currentLableSet.Count() / Convert.ToDouble(_rawTrainingData.Count);
+            var currentLableSetCount = _rawTrainingData.Count(x => x.Lable==label);
+            double labelProbability = currentLableSetCount/ Convert.ToDouble(_rawTrainingData.Count);
 
             var objFeaturesProb = new List<double>();
 
@@ -92,7 +92,7 @@ namespace NaiveBayesClassifier.Implementation
                 //takes all features occurency from Dictionary which contain feature from training data.
                 var featureOccurency = _featuresOfCategory[label].FindAll(p => p.Equals(feature)).Count;
                 //calculate a posteriori probability and add it to collection
-                var featurePosterioriProb = featureOccurency / Convert.ToDouble(currentLableSet.Count);
+                var featurePosterioriProb = featureOccurency / Convert.ToDouble(currentLableSetCount);
                 //objFeaturesProp.Add(!featurePosterioriProb.Equals(0) ? featurePosterioriProb : 1);
                 if(!featurePosterioriProb.Equals(0)) objFeaturesProb.Add(featurePosterioriProb);
             }
