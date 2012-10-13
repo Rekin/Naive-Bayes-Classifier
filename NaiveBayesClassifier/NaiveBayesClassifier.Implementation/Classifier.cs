@@ -43,14 +43,14 @@ namespace NaiveBayesClassifier.Implementation
             return _categoryProbability;
         }
 
-        public void Teach(List<InformationModel<TFeature>> objList)
+        public void Teach(List<InformationModel<TFeature>> trainingDataSet)
         {
-            if (objList == null)
+            if (trainingDataSet == null)
                 throw new ArgumentNullException();
 
-            _rawTrainingData = objList;
+            _rawTrainingData = trainingDataSet;
 
-            foreach (var model in objList)
+            foreach (var model in trainingDataSet)
             {
                 if (!_featuresOfCategory.ContainsKey(model.Lable))
                 {
@@ -83,7 +83,7 @@ namespace NaiveBayesClassifier.Implementation
             //P(v1|d) = ilosc_wystepowania_cechy_v1/ilosc_wystepowania_danej_kategorii_w_danych_treningowych
 
             var currentLableSetCount = _rawTrainingData.Count(x => x.Lable==label);
-            double labelProbability = currentLableSetCount/ Convert.ToDouble(_rawTrainingData.Count);
+            double labelProbability = currentLableSetCount / Convert.ToDouble(_rawTrainingData.Count);
 
             var objFeaturesProb = new List<double>();
 
