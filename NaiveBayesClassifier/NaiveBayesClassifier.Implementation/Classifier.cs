@@ -107,6 +107,5 @@ namespace NaiveBayesClassifier.Implementation
             return result;
         }
 
-
     }
 }

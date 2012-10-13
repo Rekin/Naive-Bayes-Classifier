@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NaiveBayesClassifier.DataProvider\NaiveBayesClassifier.DataProvider.csproj">
+      <Project>{E5402C94-6B7E-42F6-B597-9835BEC8D391}</Project>
+      <Name>NaiveBayesClassifier.DataProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NaiveBayesClassifier.Implementation\NaiveBayesClassifier.Implementation.csproj">
       <Project>{3A95F149-1634-418E-8F43-8EAB5BEE9351}</Project>
       <Name>NaiveBayesClassifier.Implementation</Name>
