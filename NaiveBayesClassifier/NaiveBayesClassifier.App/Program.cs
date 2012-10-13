@@ -23,6 +23,11 @@ namespace NaiveBayesClassifier.App
                         new InformationModel<string>()
                         {
                             Lable = "Spam",
+                            Features = new List<string>(){"ass","viagra","penis","sex","money","drugs","ipad3", "prize"}
+                        },
+                        new InformationModel<string>()
+                        {
+                            Lable = "Spam",
                             Features = new List<string>(){"ass","viagra","penis","beer","money","alcohol","ipad3"}
                         },
                         new InformationModel<string>()
@@ -56,6 +61,7 @@ namespace NaiveBayesClassifier.App
                 Console.WriteLine("{0} => {1}", x.Key, x.Value);
             }
 
+            classifier.ClearResult();
             Console.ReadKey();
         }
     }

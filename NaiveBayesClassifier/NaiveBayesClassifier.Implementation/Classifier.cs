@@ -14,14 +14,12 @@ namespace NaiveBayesClassifier.Implementation
 {
     public class Classifier<TFeature>
     {
-        private readonly Dictionary<string, double> _categoryProbability;
         private readonly Dictionary<string, List<TFeature>> _featuresOfCategory;
         private List<InformationModel<TFeature>> _rawTrainingData;
 
 
         public Classifier()
         {
-            _categoryProbability = new Dictionary<string, double>();
             _featuresOfCategory = new Dictionary<string, List<TFeature>>();
             _rawTrainingData = new List<InformationModel<TFeature>>();
         }
@@ -31,16 +29,23 @@ namespace NaiveBayesClassifier.Implementation
             if (objectFeatures == null)
                 throw new ArgumentNullException();
 
+            if(objectFeatures.Count <= 0) 
+                throw new ArgumentException("Classified object does not contain any features.");
+
             if (_featuresOfCategory.Count <= 0)
                 throw new ArgumentException("Classifier has not been trained. First use Teach method.");
 
+            return _featuresOfCategory.ToDictionary(item => item.Key, item => CalculateProbability(item.Key, objectFeatures));
 
-            foreach (var item in _featuresOfCategory)
-            {
-                _categoryProbability.Add(item.Key,CalculateProbability(item.Key,objectFeatures));
-            }
+            #region For debugging purpose
+            //var categoryProbability = new Dictionary<string, double>();
+            //foreach (var item in _featuresOfCategory)
+            //{
+            //    categoryProbability.Add(item.Key, CalculateProbability(item.Key, objectFeatures));
+            //}
 
-            return _categoryProbability;
+            //return categoryProbability; 
+            #endregion
         }
 
         public void Teach(List<InformationModel<TFeature>> trainingDataSet)
