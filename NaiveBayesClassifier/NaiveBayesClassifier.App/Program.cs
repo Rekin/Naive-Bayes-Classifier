@@ -10,6 +10,7 @@ namespace NaiveBayesClassifier.App
     {
         static void Main(string[] args)
         {
+            //USAGE EXAMPLE
             var classifier = new Classifier<string>();
 
             #region TeachData
@@ -61,7 +62,13 @@ namespace NaiveBayesClassifier.App
                 Console.WriteLine("{0} => {1}", x.Key, x.Value);
             }
 
-            classifier.ClearResult();
+            result = classifier.Classify(new List<string>() { "car", "sex", "car", "money" });
+
+            foreach (var x in result)
+            {
+                Console.WriteLine("{0} => {1}", x.Key, x.Value);
+            }
+
             Console.ReadKey();
         }
     }
