@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ *  @Author: Adam Wyrembelski
+ *  @Data: 12.10.2012.
+ *  @Project: NaiveBayesClassifier 
+ */
+
+using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
