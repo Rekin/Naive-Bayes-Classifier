@@ -14,13 +14,13 @@ namespace NaiveBayesClassifier.Implementation
 {
     public class Classifier<TFeature>
     {
-        private readonly Dictionary<string, List<TFeature>> _featuresOfCategory;
+        private readonly Dictionary<string, List<TFeature>> _allFeaturesOfCategory;
         private List<InformationModel<TFeature>> _rawTrainingData;
 
 
         public Classifier()
         {
-            _featuresOfCategory = new Dictionary<string, List<TFeature>>();
+            _allFeaturesOfCategory = new Dictionary<string, List<TFeature>>();
             _rawTrainingData = new List<InformationModel<TFeature>>();
         }
 
@@ -32,20 +32,10 @@ namespace NaiveBayesClassifier.Implementation
             if(objectFeatures.Count <= 0) 
                 throw new ArgumentException("Classified object does not contain any features.");
 
-            if (_featuresOfCategory.Count <= 0)
+            if (_allFeaturesOfCategory.Count <= 0)
                 throw new ArgumentException("Classifier has not been trained. First use Teach method.");
 
-            return _featuresOfCategory.ToDictionary(item => item.Key, item => CalculateProbability(item.Key, objectFeatures));
-
-            #region For debugging purpose
-            //var categoryProbability = new Dictionary<string, double>();
-            //foreach (var item in _featuresOfCategory)
-            //{
-            //    categoryProbability.Add(item.Key, CalculateProbability(item.Key, objectFeatures));
-            //}
-
-            //return categoryProbability; 
-            #endregion
+            return _allFeaturesOfCategory.ToDictionary(item => item.Key, item => CalculateProbability(item.Key, objectFeatures));
         }
 
         public void Teach(List<InformationModel<TFeature>> trainingDataSet)
@@ -57,13 +47,13 @@ namespace NaiveBayesClassifier.Implementation
 
             foreach (var model in trainingDataSet)
             {
-                if (!_featuresOfCategory.ContainsKey(model.Lable))
+                if (!_allFeaturesOfCategory.ContainsKey(model.Lable))
                 {
-                    _featuresOfCategory.Add(model.Lable, model.Features);
+                    _allFeaturesOfCategory.Add(model.Lable, model.Features);
                 }
                 else
                 {
-                    _featuresOfCategory[model.Lable].AddRange(model.Features);
+                    _allFeaturesOfCategory[model.Lable].AddRange(model.Features);
                 }
             }
 
@@ -95,7 +85,7 @@ namespace NaiveBayesClassifier.Implementation
             foreach (var feature in features)
             {
                 //takes all features occurency from Dictionary which contain feature from training data.
-                var featureOccurency = _featuresOfCategory[label].FindAll(p => p.Equals(feature)).Count;
+                var featureOccurency = _allFeaturesOfCategory[label].FindAll(p => p.Equals(feature)).Count;
                 //calculate a posteriori probability and add it to collection
                 var featurePosterioriProb = featureOccurency / Convert.ToDouble(currentLableSetCount);
                 //objFeaturesProp.Add(!featurePosterioriProb.Equals(0) ? featurePosterioriProb : 1);
