@@ -2,6 +2,7 @@
 bin
 obj
 _ReSharper.NaiveBayesClassifier
+_ReSharper.UsageExampleWindows
 
 # mstest test results
 TestResults
