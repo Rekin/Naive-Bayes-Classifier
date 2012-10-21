@@ -13,17 +13,7 @@ How to use?
 
 Usage example:
 
-using System;
-using NaiveBayesClassifier.DataProvider;
-using NaiveBayesClassifier.Implementation;
-using System.Collections.Generic;
 
-namespace nbc
-{
-	class MainClass
-	{
-		public static void Main (string[] args)
-		{
 			IDataProvider dataProvider = new MockDataProvider();
 			
 			Classifier<string> classifier = new Classifier<string>();
@@ -36,6 +26,3 @@ namespace nbc
 			foreach (var item in dict) {
 				Console.WriteLine ("{0} ====> {1}",item.Key,item.Value);
 			}
-		}
-	}
-}
