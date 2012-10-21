@@ -1,17 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier.Test", "NaiveBayesClassifier.Test\NaiveBayesClassifier.Test.csproj", "{887658C9-F646-4F4C-B54A-42310CBF8DB4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C02345D5-ED29-4F1E-AEF2-3559B2787A80}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		NaiveBayesClassifier.vsmdi = NaiveBayesClassifier.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier.App", "NaiveBayesClassifier.App\NaiveBayesClassifier.App.csproj", "{100078A8-3C8C-407E-9064-002828F6239E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier.Implementation", "NaiveBayesClassifier.Implementation\NaiveBayesClassifier.Implementation.csproj", "{3A95F149-1634-418E-8F43-8EAB5BEE9351}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaiveBayesClassifier.DataProvider", "NaiveBayesClassifier.DataProvider\NaiveBayesClassifier.DataProvider.csproj", "{E5402C94-6B7E-42F6-B597-9835BEC8D391}"
@@ -29,26 +18,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{887658C9-F646-4F4C-B54A-42310CBF8DB4}.Release|x86.ActiveCfg = Release|Any CPU
-		{100078A8-3C8C-407E-9064-002828F6239E}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Debug|x86.ActiveCfg = Debug|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Debug|x86.Build.0 = Debug|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Release|Any CPU.ActiveCfg = Release|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Release|Mixed Platforms.Build.0 = Release|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Release|x86.ActiveCfg = Release|x86
-		{100078A8-3C8C-407E-9064-002828F6239E}.Release|x86.Build.0 = Release|x86
 		{3A95F149-1634-418E-8F43-8EAB5BEE9351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A95F149-1634-418E-8F43-8EAB5BEE9351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A95F149-1634-418E-8F43-8EAB5BEE9351}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
