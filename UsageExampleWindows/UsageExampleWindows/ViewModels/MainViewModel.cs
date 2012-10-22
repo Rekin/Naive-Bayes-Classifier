@@ -8,6 +8,7 @@ using System.Windows.Input;
 using NaiveBayesClassifier.DataProvider;
 using NaiveBayesClassifier.Implementation;
 using UsageExampleWindows.Models;
+using UsageExampleWindows.Properties;
 
 namespace UsageExampleWindows.ViewModels
 {
@@ -60,7 +61,7 @@ namespace UsageExampleWindows.ViewModels
         {
             if (!IsStringCorrect(ObjViewModel.CarType, ObjViewModel.Color, ObjViewModel.Origin))
             {
-                MessageBox.Show("Uzupełnij wszystkie pola!");
+                MessageBox.Show(Resources.ErrorMessage);
 
             }
             else
@@ -69,7 +70,13 @@ namespace UsageExampleWindows.ViewModels
                 {
                     var results = _classifer.Classify(new List<string>() { ObjViewModel.CarType, ObjViewModel.Color, ObjViewModel.Origin });
                     var bestResult = results.OrderByDescending(x=>x.Value).FirstOrDefault();
-                    Result = string.Format("Stolen?\nClassified as '{0}' with {1} result.", bestResult.Key, bestResult.Value);
+
+                    var strBuilder = new StringBuilder();
+                    strBuilder.AppendLine(Resources.CategoryQuestion);
+                    strBuilder.AppendLine(string.Format(Resources.ResultForma, bestResult.Key, bestResult.Value));
+
+                    Result = strBuilder.ToString();
+
                 }
             }
 
